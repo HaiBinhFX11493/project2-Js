@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="project2js.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1 style="text-align: center;">Class Marksheet</h1>
+    <div>
+        <p class="chiaBang">Họ Tên</p>
+        <input id="hoten" style="display: inline-block;" type="text" name="hoten"></input>
+    </div>
+    <div>
+        <p class="chiaBang">Điểm toán</p>
+        <input id="diemtoan" style="display: inline-block;" type="text" name="diemtoan"></input>
+    </div>
+    <div>
+        <p class="chiaBang">Điểm lý</p>
+        <input id="diemly" style="display: inline-block;" type="text" name="diemly"></input>
+    </div>
+    <div>
+        <p class="chiaBang">Điểm hóa</p>
+        <input id="diemhoa" style="display: inline-block;" type="text" name="diemhoa"></input>
+    </div>
+    <div style="text-align: center;">
+        <button onclick="return nhap()">Nhập</button>
+    </div>
+    <div>
+        <table id="table" style="width:100%;" border="1" cellpadding="1" cellspacing="2">
+            <tr>
+                <th style="text-align: center;width: 10%;">STT</th>
+                <th style="text-align: center;width: 30%;">Họ tên</th>
+                <th style="text-align: center;width: 15%;">Toán</th>
+                <th style="text-align: center;width: 15%;">Lý</th>
+                <th style="text-align: center;width: 15%;">Hóa</th>
+                <th style="text-align: center;width: 15%;">Trung bình</th>
+            </tr>
+        </table>
+    </div>
+    <div style="text-align: center;">
+        <button>Tính điểm trung bình</button>
+        <button>Xác định học sinh giỏi</button>
+    </div>
+    <script>
+        var testScore = {
+            name: "",
+            math: 0,
+            physical: 0,
+            chemistry: 0
+        };
+        var ht;
+        var dt;
+        var dl;
+        var dh;
+        var i = 0;
+
+        function nhap() {
+            i++
+            var name = document.getElementById("hoten").value;
+            var math = document.getElementById("diemtoan").value;
+            var physical = document.getElementById("diemly").value;
+            var chemistry = document.getElementById("diemhoa").value;
+            testScore.name = name;
+            testScore.math = math;
+            testScore.physical = physical;
+            testScore.chemistry = chemistry;
+            testScore.avg = "?";
+            document.getElementById("hoten").value = "";
+            document.getElementById("diemtoan").value = "";
+            document.getElementById("diemly").value = "";
+            document.getElementById("diemhoa").value = "";
+            table = document.getElementById("table");
+            var row = table.insertRow();
+            var STT = row.insertCell();
+            var HT = row.insertCell();
+            var DT = row.insertCell();
+            var DL = row.insertCell();
+            var DH = row.insertCell();
+            var diemTB = row.insertCell();
+            STT.innerHTML = i;
+            HT.innerHTML = testScore.name;
+            DT.innerHTML = testScore.math;
+            DL.innerHTML = testScore.physical;
+            DH.innerHTML = testScore.chemistry;
+            diemTB.innerHTML = "?";
+
+        }
+    </script>
+</body>
+
+</html>
